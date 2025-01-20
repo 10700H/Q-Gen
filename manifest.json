@@ -4,7 +4,7 @@
   "version": "1.0",
 
   "description": "Simple QR code generator for firefox which is inspired by chrome/edge's ability to convert links to QR code",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/main/beastify",
+  "homepage_url": "https://github.com/10700H/Q-Gen",
   "icons": {
     "48": "icons/QRICON-48.png",
     "96":"icons/QRICON-96.png"
