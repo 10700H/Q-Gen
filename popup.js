@@ -35,6 +35,12 @@ document.getElementById('copy').addEventListener('click', () => {
     browser.window.alert("Copied to clipboard");
   });
 });
+function cleanGoogleUrl(url) {
+  const pattern = /(https?:\/\/www\.google\.com\/search\?q=[^&]+)/;
+  const match = url.match(pattern);
+
+  return match ? match[0] : url;
+}
 
 function checkUrl(url) {
   fetch('URLs/ExcludedUrl.json').then(response => response.json()).then(data => {
@@ -43,10 +49,10 @@ function checkUrl(url) {
       document.getElementById('download').disabled = true;
       document.getElementById('copy').disabled = true;
       } else {
-      qr.makeCode(url);
+      const finalUrl = url.includes("https://www.google.com/search") ? cleanGoogleUrl(url) : url;
+      qr.makeCode(finalUrl);
       document.getElementById('download').disabled = false;
       document.getElementById('copy').disabled = false;
       }
     })
     .catch(error => console.error('Error fetching the JSON file:', error));
-}
