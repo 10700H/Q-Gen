@@ -2,6 +2,7 @@
 A FireFox web extension to generate QR codes similir to Chrome and Edge 
 
 ![image](https://github.com/user-attachments/assets/3ff2b1ff-91b1-4224-a7ca-334d4af9925d)
+Please scan this QR to get an idea on this extensions working> 
 
 This is how Q-gen generates the QRcode of the active tab and you can download the image or copy it to clipboard.
 
