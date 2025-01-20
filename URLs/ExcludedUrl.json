@@ -1,0 +1,9 @@
+{
+    "excludedUrls": [
+      "about:newtab",
+      "about:debugging",
+      "about:debugging#/runtime/this-firefox",
+      "about:debugging#/setup",
+      "about:addons"
+    ]
+  }
