@@ -25,4 +25,5 @@ MIT LiCENSE
 
 ## FUTURE 
 ADD user URL exclusion 
+
 ADD more THEME Options
