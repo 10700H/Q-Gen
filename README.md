@@ -22,3 +22,7 @@ Also another thanks to [Icons8](https://icons8.com) for this [QR ICON](https://i
 ## LICENSE
 
 MIT LiCENSE
+
+## FUTURE 
+ADD user URL exclusion 
+ADD more THEME Options
