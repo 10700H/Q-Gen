@@ -1,5 +1,5 @@
 #mainpage {
-  height: 370px;
+  height: 350px;
   width: 300px;
   background-color:#121212;
 }
@@ -14,20 +14,19 @@
   font-family: sans-serif;
 }
 #qrarea {
-align-content: center;
-height:250px;
-width:250px;
-background-color:#ffffff;
-margin: auto;
-padding: 4px;
-border-radius: 4px;
-margin-bottom: 5px;
+  height:250px;
+  width:250px;
+  background-color:#ffffff;
+  margin:auto;
+  padding: 4px;
+  border-radius: 4px;
+  margin-bottom: 5px;
 }
 #qrtext{ 
-font-family: sans-serif;
-color: black;
-align-items: center;
-text-align: center; 
+  font-family: sans-serif;
+  color: black;
+  align-items: center;
+  text-align: center; 
 }
 #buttonbox{
   align-items: center;
@@ -52,32 +51,5 @@ text-align: center;
     margin : 4px 2px;
     cursor : pointer;
     transition-duration: 0.4s;
-  }
-  #icontag{
-padding-top: 10px;
-margin: auto;
-width: 250px;
-color: white;
-height: 20px;
-text-align: center;
-align-items: center;
-margin-bottom: 5px;
-font-family: sans-serif;
-  }
-.link{
-  text-decoration: none;
-}
-a:link {
-  color: rgb(255, 255, 255);
-}
-a:visited {
-  color: rgb(255, 255, 255);
-}
-a:hover {
-  color: rgb(255, 255, 255);
 }
 
-
-a:active {
-  color: rgb(255, 255, 255);
-}
