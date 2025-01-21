@@ -17,7 +17,11 @@ And that will be fixed when I come with something new.
 
 Thanks to [davidshimjs](https://github.com/davidshimjs) for his library [qrcodejs](https://github.com/davidshimjs/qrcodejs)
 
-Also another thanks to [Icons8](https://icons8.com) for this [QR ICON](https://icons8.com/icon/dYdn4BdPqxFx/qr-code)
+Also another thanks to [Icons8](https://icons8.com) for this [QR ICON](https://icons8.com/icon/dYdn4BdPqxFx/qr-code) (Since Version 1.1 my own icon is used instead)
+
+![qricon](https://github.com/user-attachments/assets/487921d0-ddf8-4625-a018-c9c8a9b1235f)
+
+
 
 ## LICENSE
 
