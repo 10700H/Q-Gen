@@ -1,6 +1,6 @@
 import "./qrcode/qrcode.min.js";
 
-  let qr = new QRCode(document.getElementById("qrarea"), {
+  qr = new QRCode(document.getElementById("qrarea"), {
     width: 250,
     height: 250,
     colorDark: "#000000",
@@ -11,8 +11,8 @@ import "./qrcode/qrcode.min.js";
   document.addEventListener('DOMContentLoaded', async () => 
     { 
       try { 
-        let tabs = await browser.tabs.query({ active: true, currentWindow: true }); 
-        let currentTab = tabs[0]; 
+        tabs = await browser.tabs.query({ active: true, currentWindow: true }); 
+        currentTab = tabs[0]; 
         checkUrl(currentTab.url); 
       } 
       catch (error) { 
@@ -21,32 +21,32 @@ import "./qrcode/qrcode.min.js";
   });
 
   document.getElementById('download').addEventListener('click', () => {
-    let canvas = document.querySelector('#qrarea canvas');
-    let img = canvas.toDataURL("image/png");
-    let link = document.createElement('a');
+    canvas = document.querySelector('#qrarea canvas');
+    img = canvas.toDataURL("image/png");
+    link = document.createElement('a');
     link.href = img;
     link.download = 'qrcode.png';
     link.click();
   });
 
   document.getElementById('copy').addEventListener('click', () => {
-    let canvas = document.querySelector('#qrarea canvas');
+    canvas = document.querySelector('#qrarea canvas');
     canvas.toBlob(blob => {
-    let item = new ClipboardItem({ 'image/png': blob });
+    item = new ClipboardItem({ 'image/png': blob });
     navigator.clipboard.write([item]);
     });
   });
 
   function cleanGoogleUrl(url) {
     const pattern = /(https?:\/\/www\.google\.com\/search\?q=[^&]+)/;
-    let match = url.match(pattern);
+    match = url.match(pattern);
     return match ? match[0] : url;
   }
 
   async function checkUrl(url) {
     try {
-      let response = await fetch('URLs/ExcludedUrl.json');
-      let data = await response.json();
+      response = await fetch('URLs/ExcludedUrl.json');
+      data = await response.json();
   
       if (data.excludedUrls.includes(url)) {
         document.getElementById('qrtext').innerHTML = 'QR cannot be generated for this link';
