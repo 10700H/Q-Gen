@@ -1,4 +1,4 @@
-import "./qrcode/qrcode.js";
+import "./qrcode/qrcode.min.js";
 
 var qr = new QRCode(document.getElementById("qrarea"), {
   width: 250,
@@ -56,3 +56,4 @@ function checkUrl(url) {
       }
     })
     .catch(error => console.error('Error fetching the JSON file:', error));
+}
