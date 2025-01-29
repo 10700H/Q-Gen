@@ -3,7 +3,8 @@ A FireFox web extension to generate QR codes similar to Chrome and Edge
 
 ![qricon](https://github.com/user-attachments/assets/487921d0-ddf8-4625-a018-c9c8a9b1235f)
 
-![image](https://github.com/user-attachments/assets/3ff2b1ff-91b1-4224-a7ca-334d4af9925d)
+![image](https://github.com/user-attachments/assets/a052aa34-7426-40a3-ad9f-9a8afdbb4c05)
+
 
 Please scan this QR to get an idea on this extension's working
 
