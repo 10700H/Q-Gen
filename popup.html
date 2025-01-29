@@ -2,20 +2,41 @@
 <html>
 <head>
 </head>
+
+<!-- Main CSS -->
 <link rel="stylesheet" href="popup.css">
+
 </head>
+
+<!-- Main body -->
 <body id="mainpage">
+
+    <!-- Library and Modules -->
     <script  src="qrcode/qrcode.min.js"></script>
-
     <script type="module" src="popup.js"></script>
-
+    
+    <!-- Title -->
     <div id="title">Scan QR Code</div>
+
+    <!-- QR area --> 
     <div id="qrarea">
         <div id="qrtext"></div>
     </div>
+
+    <!-- Buttons -->
     <div id="buttonbox">
         <button id="copy"class="buttons">Copy</button>
         <button id="download"class="buttons">Download</button>
     </div>
+
+    <!-- Alert box -->
+    <div id="alertBox" class="alert">
+        <div class="alertcontent">
+            <span class="close">&times;</span>
+            <p id="alertMessage"></p>
+        </div>
+    </div>
+    
+
 </body>    
 </html>

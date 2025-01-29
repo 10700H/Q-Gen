@@ -28,7 +28,14 @@
        "about:newprofile", 
        "about:newtab", 
        "about:policies", 
-       "about:preferences", 
+       "about:preferences",
+       "about:preferences#general",
+       "about:preferences#home",
+       "about:preferences#search",
+       "about:preferences#privacy",
+       "about:preferences#sync",
+       "about:preferences#experimental",
+       "about:preferences#moreFromMozilla", 
        "about:privatebrowsing", 
        "about:processes", 
        "about:profiles", 
@@ -46,8 +53,5 @@
        "about:url-classifier", 
        "about:webrtc", 
        "about:welcome", 
-       "about:windows-messages"
-      
-      
-    ]
-  }
+       "about:windows-messages"]
+}

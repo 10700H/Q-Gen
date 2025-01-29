@@ -1,55 +1,109 @@
-#mainpage {
-  height: 350px;
-  width: 300px;
-  background-color:#121212;
-}
-#title{
-  margin: auto;
-  width: 250px;
-  color: white;
-  height: 20px;
-  text-align: center;
-  align-items: center;
-  margin-bottom: 5px;
-  font-family: sans-serif;
-}
-#qrarea {
-  height:250px;
-  width:250px;
-  background-color:#ffffff;
-  margin:auto;
-  padding: 4px;
-  border-radius: 4px;
-  margin-bottom: 5px;
-}
-#qrtext{ 
-  font-family: sans-serif;
-  color: black;
-  align-items: center;
-  text-align: center; 
-}
-#buttonbox{
-  align-items: center;
-  display: flex;
-  margin: auto;
-  height:50px;
-  width: 250px;
-  background-color:#121212;
-  border-radius: 4px;
+/*Q-Gen main page*/ 
+  #mainpage {
+    height: 350px;
+    width: 300px;
+    background-color:#121212;
+  }
+  /*QR page title*/
+  #title{
+    margin: auto;
+    width: 250px;
+    color: white;
+    height: 20px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+  }
+  /*QR area*/
+  #qrarea {
+    height:250px;
+    width:250px;
+    background-color:#ffffff;
+    margin:auto;
+    padding: 4px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+  }
+  /*QR Text*/
+  #qrtext{
+    font-family: sans-serif;
+    color: black;
+    align-items: center;
+    text-align: center;
+  }
+/*End*/
 
-}
-.buttons {
-    background-color: #222222; 
-    border : none;
-    color : white;
-    border-radius :4px;
-    padding : 10px 34px;
-    text-align : center;
-    text-decoration : none;
-    display : inline-block;
-    font-size : 16px;
-    margin : 4px 2px;
-    cursor : pointer;
-    transition-duration: 0.4s;
-}
+/*Buttons*/
+  /*Button Box*/
+    #buttonbox{
+      align-items: center;
+      display: flex;
+      margin: auto;
+      height:50px;
+      width: 250px;
+      background-color:#121212;
+      border-radius: 4px;
+    }
+  /*Button Class*/
+    .buttons {
+      background-color: #222222; 
+      border : none;
+      color : white;
+      border-radius :4px;
+      padding : 10px 34px;
+      text-align : center;
+      text-decoration : none;
+      display : inline-block;
+      font-size : 16px;
+      margin : 4px 2px;
+      cursor : pointer;
+      transition-duration: 0.4s;
+    }
+/*END*/
 
+/*QR alert area*/
+  /*Alert box class*/
+    .alert {
+      display: none;
+      position: fixed; 
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      align-items: center;
+      width: 300px;
+      height: 350px; 
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+    }
+  /*Alert Content class*/
+      .alertcontent {
+        background-color: #121212;
+        padding: 10px;
+        text-align: center;
+        align-items: center;
+        border-radius: 4px;
+      }
+  /*Alert close button class*/
+   
+    /*close button*/
+      .close {
+        color: #929292;
+        float: top;
+        font-size: 25px;
+        font-weight: bold;
+      }
+    /*Alert close button hover and focus*/  
+      .close:hover,.close:focus {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+  /*Alert message*/
+      #alertMessage {
+        color: #ffffff;
+        font-family: sans-serif;
+      }
+/*END*/
