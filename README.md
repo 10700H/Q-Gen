@@ -30,6 +30,9 @@ Also another thanks to [Icons8](https://icons8.com) for this [QR ICON](https://i
 MIT LiCENSE
 
 ## FUTURE 
-ADD user URL exclusion 
+
+ADD Better URL shortner 
+
+ADD new ICONS 
 
 ADD more THEME Options
