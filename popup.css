@@ -1,109 +1,141 @@
-/*Q-Gen main page*/ 
-  #mainpage {
-    height: 350px;
-    width: 300px;
-    background-color:#121212;
-  }
-  /*QR page title*/
-  #title{
-    margin: auto;
-    width: 250px;
-    color: white;
-    height: 20px;
-    text-align: center;
-    align-items: center;
-    margin-bottom: 5px;
-    font-family: sans-serif;
-  }
-  /*QR area*/
-  #qrarea {
-    height:250px;
-    width:250px;
-    background-color:#ffffff;
-    margin:auto;
-    padding: 4px;
-    border-radius: 4px;
-    margin-bottom: 5px;
-  }
-  /*QR Text*/
-  #qrtext{
-    font-family: sans-serif;
-    color: black;
-    align-items: center;
-    text-align: center;
-  }
-/*End*/
+/* Main page */
+#mainpage {
+  height: 420px;
+  width: 300px;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
 
-/*Buttons*/
-  /*Button Box*/
-    #buttonbox{
-      align-items: center;
-      display: flex;
-      margin: auto;
-      height:50px;
-      width: 250px;
-      background-color:#121212;
-      border-radius: 4px;
-    }
-  /*Button Class*/
-    .buttons {
-      background-color: #222222; 
-      border : none;
-      color : white;
-      border-radius :4px;
-      padding : 10px 34px;
-      text-align : center;
-      text-decoration : none;
-      display : inline-block;
-      font-size : 16px;
-      margin : 4px 2px;
-      cursor : pointer;
-      transition-duration: 0.4s;
-    }
-/*END*/
+/* QR page title */
+#title {
+  width: 250px;
+  color: white;
+  height: 20px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+}
 
-/*QR alert area*/
-  /*Alert box class*/
+/* QR area */
+#qrarea {
+  height: 250px;
+  width: 250px;
+  background-color: #ffffff;
+  padding: 4px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  text-align: center;
+}
+
+/* QR Text */
+#qrtext {
+  font-family: sans-serif;
+  color: black;
+  text-align: center;
+}
+
+/* Buttons */
+/* Button Box */
+#buttonbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: #121212;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+/* Button Class */
+.buttons {
+  background-color: #222222;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 10px 30px;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+/* QR alert area */
+  /* Alert box class */
     .alert {
       display: none;
-      position: fixed; 
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      text-align: center;
-      align-items: center;
       width: 300px;
-      height: 350px; 
+      height: 420px;
       background-color: rgba(0, 0, 0, 0.4);
       z-index: 1000;
     }
-  /*Alert Content class*/
-      .alertcontent {
-        background-color: #121212;
-        padding: 10px;
-        text-align: center;
-        align-items: center;
-        border-radius: 4px;
-      }
-  /*Alert close button class*/
-   
-    /*close button*/
+
+  /* Alert Content class */
+    .alertcontent {
+      background-color: #121212;
+      padding: 10px;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+  /* Alert close button class */
+    /* close button */
       .close {
         color: #929292;
-        float: top;
         font-size: 25px;
         font-weight: bold;
+        cursor: pointer;
       }
-    /*Alert close button hover and focus*/  
+    /* Alert close button hover and focus */
       .close:hover,.close:focus {
         color: rgb(255, 255, 255);
         text-decoration: none;
-        cursor: pointer;
       }
+  /* Alert message */
+    #alertmessage {
+      color: #ffffff;
+      font-family: sans-serif;
+    }
 
-  /*Alert message*/
-      #alertMessage {
-        color: #ffffff;
-        font-family: sans-serif;
-      }
-/*END*/
+    
+/* Link Text */ 
+  #linktext {
+    width: 250px;
+    height: 25px;
+    font-size: 15px;
+    background-color: #222222;
+    font-family: sans-serif;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    overflow: clip;
+    resize: none;
+    margin: none;
+  }
+
+/* Link Button */
+  #linkbutton {
+    background-color: #222222;
+    font-family: sans-serif;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 30px;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    text-align: center;
+  }
