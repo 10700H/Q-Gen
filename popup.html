@@ -11,32 +11,40 @@
 <!-- Main body -->
 <body id="mainpage">
 
-    <!-- Library and Modules -->
-    <script  src="qrcode/qrcode.min.js"></script>
-    <script type="module" src="popup.js"></script>
+  <!-- Library and Modules -->
+   <script  src="qrcode/qrcode.min.js"></script>
+   <script type="module" src="popup.js"></script>
     
-    <!-- Title -->
-    <div id="title">Scan QR Code</div>
+  <!-- Title -->
+   <div id="title">Scan QR Code</div>
 
-    <!-- QR area --> 
-    <div id="qrarea">
-        <div id="qrtext"></div>
+  <!-- QR area --> 
+   <div id="qrarea">
+      <div id="qrtext"></div>
     </div>
 
-    <!-- Buttons -->
+  <!-- Link area -->
+    <div>
+        <input type="text" id="linktext" title="Enter link here"/>
+    </div>
+    <div>
+        <button id="linkbutton" title="Generate QR from link">Generate</button>
+    </div>
+
+  <!-- Buttons -->
     <div id="buttonbox">
-        <button id="copy"class="buttons">Copy</button>
-        <button id="download"class="buttons">Download</button>
+        <button id="copy"class="buttons" title="Copy to clipboard">Copy</button>
+        <button id="download"class="buttons" title="Download as PNG">Download</button>
     </div>
 
-    <!-- Alert box -->
+  <!-- Alert box -->
     <div id="alertBox" class="alert">
         <div class="alertcontent">
             <span class="close">&times;</span>
-            <p id="alertMessage"></p>
+            <p id="alertmessage"></p>
         </div>
     </div>
     
 
-</body>    
+</body>   
 </html>

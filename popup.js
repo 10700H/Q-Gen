@@ -10,7 +10,7 @@ import "./qrcode/qrcode.min.js";
         correctLevel: QRCode.CorrectLevel.H
       });
 
-    // URL Fetcher 
+    // Tab URL Fetcher 
       document.addEventListener('DOMContentLoaded', async () => 
         { 
           try { 
@@ -37,13 +37,18 @@ import "./qrcode/qrcode.min.js";
           let { excludedUrls } = await response.json();
           if (excludedUrls.includes(url)) {
             // If excluded URL detected then butons are disabled
+            document.getElementById('qrtext').style.display="block";
             document.getElementById('qrtext').innerHTML = 'QR cannot be generated for this link';
             document.getElementById('download').disabled = true;
             document.getElementById('copy').disabled = true;
+            url='';
+            await textInput(url);
           }
           else {
             // QR is genereated if the above condition is not met
             qr.makeCode(url.includes("https://www.google.com/search") ? cleanGoogleUrl(url) : url);
+            // Text area function which adds the link of browser URL
+            await textInput(url);
             document.getElementById('download').disabled = false;
             document.getElementById('copy').disabled = false;
           }
@@ -51,48 +56,72 @@ import "./qrcode/qrcode.min.js";
           console.error('Error fetching the JSON file:', error);
         }
       }
-  //END
       
   //Buttons
     // Download button function
-        document.getElementById('download').addEventListener('click', () => {
-          let canvas = document.querySelector('#qrarea canvas');
-          let img = canvas.toDataURL("image/png");
-          let link = document.createElement('a');
-          link.href = img;
-          link.download = 'qrcode.png';
-          link.click();
+      document.getElementById('download').addEventListener('click', () => {
+        let canvas = document.querySelector('#qrarea canvas');
+        let img = canvas.toDataURL("image/png");
+        let link = document.createElement('a');
+        link.href = img;
+        link.download = 'qrcode.png';
+        link.click();
+      });
+    // Copy to clipboard  buttonfunction
+      document.getElementById('copy').addEventListener('click', () => {
+        let canvas = document.querySelector('#qrarea canvas');
+        canvas.toBlob(blob => {
+          let item = new ClipboardItem({ 'image/png': blob });
+          navigator.clipboard.write([item]);
+          showAlertBox("QR code copied to clipboard!");
         });
-     //END
+      });
 
-    // Copy button function
-      // Hide alert box
-        function hideAlertBox() {
-          alertBox.style.display = "none";
-        }
-      //Close button 
-        document.querySelector(".close").addEventListener('click', hideAlertBox);
+  // Alert box function 
+    // Hide alert box
+      function hideAlertBox() {
+        document.getElementById("alertBox").style.display = "none";
+      }
+    //Close button 
+      document.querySelector(".close").addEventListener('click', hideAlertBox);
 
-      //Show alert box
-        function showAlertBox(message) {
-          document.getElementById("alertMessage").innerText = message;
-          document.getElementById("alertBox").style.display = "block";
-        }
-      // Copy to clipboard logic
-        document.getElementById('copy').addEventListener('click', () => {
-          let canvas = document.querySelector('#qrarea canvas');
-          canvas.toBlob(blob => {
-            let item = new ClipboardItem({ 'image/png': blob });
-            navigator.clipboard.write([item]);
-            document.getElementById("alertMessage").innerHTML = "QR code copied to clipboard!";
-            document.getElementById("alertBox").style.display = "block";
-            showAlertBox("QR code copied to clipboard!");
-          });
-        });
-      //Hide alert box if clicked outside of alert area
+    //Show alert box
+      function showAlertBox(message) {
+        document.getElementById("alertmessage").innerText = message;
+        document.getElementById("alertBox").style.display = "block";
+      }
+    //Hide alert box if clicked outside of alert area
         window.addEventListener('click', (event) => {
-          if (event.target == alertBox) {
-            hideAlertBox();
+        if (event.target == document.getElementById("alertBox")) {
+          hideAlertBox();
+        }
+      });
+
+  //Text input
+    //URL fetcher and checker for link area 
+      async function textInput(url) {
+        let browserUrl = url;
+        let changedUrl = url;
+        document.getElementById("linktext").value=browserUrl;
+        document.getElementById("linktext").addEventListener('input', async () => {
+          changedUrl = document.getElementById("linktext").value;
+        });
+        document.getElementById("linkbutton").addEventListener('click', async () => {
+          document.getElementById("qrtext").style.display = "none";
+          if (changedUrl === browserUrl) {
+            showAlertBox("QR is already Generated");
+          }
+          else if (document.getElementById("linktext").value === ''){
+            document.getElementById("linktext").value = browserUrl;
+            showAlertBox("Link cannot be Blank");
+          }
+          else {
+            await checkUrl(changedUrl);
           }
         });
-    //END
+      }
+     
+        
+            
+    
+        
