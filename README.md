@@ -27,7 +27,7 @@ Also another thanks to [Icons8](https://icons8.com) for this [QR ICON](https://i
 
 ## LICENSE
 
-MIT LiCENSE
+GPL-3.0 license
 
 ## FUTURE 
 
