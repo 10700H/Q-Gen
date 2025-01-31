@@ -41,7 +41,7 @@ import "./qrcode/qrcode.min.js";
             document.getElementById('qrtext').innerHTML = 'QR cannot be generated for this link';
             document.getElementById('download').disabled = true;
             document.getElementById('copy').disabled = true;
-            url='';
+            url='Empty link';
             await textInput(url);
           }
           else {
@@ -100,28 +100,32 @@ import "./qrcode/qrcode.min.js";
   //Text input
     //URL fetcher and checker for link area 
       async function textInput(url) {
+        try{
         let browserUrl = url;
         let changedUrl = url;
+        let emptyLink = "Empty link";
         document.getElementById("linktext").value=browserUrl;
         document.getElementById("linktext").addEventListener('input', async () => {
           changedUrl = document.getElementById("linktext").value;
         });
         document.getElementById("linkbutton").addEventListener('click', async () => {
           document.getElementById("qrtext").style.display = "none";
-          if (changedUrl === browserUrl) {
+          if (changedUrl === browserUrl && browserUrl != emptyLink) {
             showAlertBox("QR is already Generated");
           }
-          else if (document.getElementById("linktext").value === ''){
+          else if (changedUrl === ''){
             document.getElementById("linktext").value = browserUrl;
+            changedUrl=browserUrl;
             showAlertBox("Link cannot be Blank");
+          }
+          else if (browserUrl && changedUrl === emptyLink) {
+            showAlertBox("Empty link provided");
           }
           else {
             await checkUrl(changedUrl);
           }
         });
+      } catch (error){
+        console.error("Some error",error);
+        }
       }
-     
-        
-            
-    
-        
