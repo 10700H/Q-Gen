@@ -9,6 +9,7 @@
     "96": "icons/qricon96.png"
   },
   "permissions": ["activeTab"],
+  
   "browser_action": {
     "default_icon": "icons/qricon512.png",
     "default_title": "Q-Gen",
