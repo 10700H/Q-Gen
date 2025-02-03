@@ -1,6 +1,6 @@
 /* Main page */
 #mainpage {
-  height: 420px;
+  height: 440px;
   width: 300px;
   background-color: #121212;
   display: flex;
@@ -23,8 +23,8 @@
 
 /* QR area */
 #qrarea {
-  height: 250px;
-  width: 250px;
+  height: 265px;
+  width: 265px;
   background-color: #ffffff;
   padding: 4px;
   border-radius: 4px;
@@ -122,7 +122,7 @@
     white-space: nowrap;
     overflow: clip;
     resize: none;
-    margin: none;
+    margin: 0;
   }
 
 /* Link Button */
@@ -139,3 +139,14 @@
     transition-duration: 0.4s;
     text-align: center;
   }
+
+/* Class Implementations to improve codw */
+
+  .hidden
+  {
+    display: none;
+  }
+  .visible {
+    display : block;
+  }
+

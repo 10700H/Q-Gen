@@ -27,9 +27,16 @@ import "./qrcode/qrcode.min.js";
 
   //QR Generation
 
+    //Variable declarations
+
+      const qrText = document.getElementById('qrtext');
+      const download = document.getElementById('download');
+      const copy = document.getElementById('copy');
+
     // QR Specifications
-    
-      let qr = new QRCode(document.getElementById("qrarea"), {
+
+     const qrarea = document.getElementById("qrarea");
+      let qr = new QRCode(qrarea, {
         width: 250,
         height: 250,
         colorDark: "#000000",
@@ -41,11 +48,11 @@ import "./qrcode/qrcode.min.js";
 
       document.addEventListener('DOMContentLoaded', async () => 
         { 
-          try { 
+          try {
             let tabs = await browser.tabs.query({ active: true, currentWindow: true }); 
             let currentTab = tabs[0]; 
-            checkUrl(currentTab.url); 
-          } 
+            await checkUrl(currentTab.url); 
+          }
           catch (error) { 
             console.error("Error getting current tab URL:", error);
           }
@@ -59,32 +66,28 @@ import "./qrcode/qrcode.min.js";
         return match ? match[0] : url;
       }
 
-    // Removes FireFox Browser URLs and also Removes certain unwanted Parameters from long URLs(only google)
-
+    // Removes FireFox Browser URLs and also Removes certain unwanted Parameters from long URLs(only google)    
+     
       async function checkUrl(url) {
         try {
           let response = await fetch('URLs/ExcludedUrl.json');
           let { excludedUrls } = await response.json();
           if (excludedUrls.includes(url)) {
-            // If excluded URL detected then butons are disabled
-            document.getElementById('qrtext').style.display="block";
-            document.getElementById('qrtext').innerHTML = 'QR cannot be generated for this link';
-            document.getElementById('download').disabled = true;
-            document.getElementById('copy').disabled = true;
-            url='Empty link';
+            qrText.classList.add('visible');
+            qrText.classList.remove('hidden');
+            qrText.innerText = 'QR cannot be generated for this link';
+            download.disabled = true;
+            copy.disabled = true;
+            url ='';
+            linktext.placeholder ="Empty link";
             await textInput(url);
           }
           else {
-
-            // QR is genereated if the above condition is not met
-
-            qr.makeCode(url.includes("https://www.google.com/search") ? cleanGoogleUrl(url) : url);
-            
-            // Text area function which adds the link of browser URL
-            
+            const googleUrl= "https://www.google.com/search";
+            qr.makeCode(url.includes(googleUrl) ? cleanGoogleUrl(url) : url);
             await textInput(url);
-            document.getElementById('download').disabled = false;
-            document.getElementById('copy').disabled = false;
+            download.disabled = false;
+            copy.disabled = false;
           }
         } catch (error) {
           console.error('Error fetching the JSON file:', error);
@@ -93,34 +96,39 @@ import "./qrcode/qrcode.min.js";
 
     //Text input
 
-      //URL fetcher and checker for link area 
+      //variable declaratoins
+
+        const linkbutton = document.getElementById("linkbutton");
+        const linktext = document.getElementById("linktext");
+
+      //Gets URL from checkUrl and and passes it to respective function
 
         async function textInput(url) {
           try{
             let browserUrl = url;
             let changedUrl = url;
-            let emptyLink = "Empty link";
-            document.getElementById("linktext").value=browserUrl;
-            document.getElementById("linktext").addEventListener('input', async () => {
-              changedUrl = document.getElementById("linktext").value;
+            linktext.value=browserUrl;
+            linktext.placeholder ="Empty link";
+            linktext.addEventListener('input', async () => {
+              changedUrl = linktext.value;
             });
 
-            //This checks for updates in link area and passes it to checkurl
+      //This checks for updates in link area and passes it to checkurl
 
-            document.getElementById("linkbutton").addEventListener('click', async () => {
-              document.getElementById("qrtext").style.display = "none";
-              if (changedUrl === browserUrl && browserUrl != emptyLink) {
+            linkbutton.addEventListener('click', async () => {
+              qrText.classList.add('hidden');
+              qrText.classList.remove('visible');
+              if ((changedUrl === browserUrl) && (browserUrl && changedUrl != '')) {
+                linktext.value=browserUrl;
                 showAlertBox("QR is already Generated");
               }
               else if (changedUrl === '') {
-                document.getElementById("linktext").value = browserUrl;
+                linktext.value = browserUrl;
                 changedUrl=browserUrl;
                 showAlertBox("Link cannot be Blank");
               }
-              else if (browserUrl && changedUrl === emptyLink) {
-                showAlertBox("Empty link provided");
-              }
               else {
+                showAlertBox("QR code Generated");
                 await checkUrl(changedUrl);
               }
             });
@@ -133,11 +141,11 @@ import "./qrcode/qrcode.min.js";
 /******************************************************************************/
 
 
-  //Buttons
+  //Button Funtions
 
     // Download button function
 
-      document.getElementById('download').addEventListener('click', () => {
+      download.addEventListener('click', () => {
         let canvas = document.querySelector('#qrarea canvas');
         let img = canvas.toDataURL("image/png");
         let link = document.createElement('a');
@@ -148,7 +156,7 @@ import "./qrcode/qrcode.min.js";
 
     // Copy to clipboard  buttonfunction
 
-      document.getElementById('copy').addEventListener('click', () => {
+      copy.addEventListener('click', () => {
         let canvas = document.querySelector('#qrarea canvas');
         canvas.toBlob(blob => {
           let item = new ClipboardItem({ 'image/png': blob });
@@ -157,35 +165,49 @@ import "./qrcode/qrcode.min.js";
         });
       });
 
+      
 /******************************************************************************/
 
 
   // Alert box function
 
+    //Variable declarations
+
+      const alertBox = document.getElementById("alertBox");
+      const alertMessage = document.getElementById("alertmessage");
+      const closeButton = document.querySelector(".close");
+
     // Hide alert box
 
       function hideAlertBox() {
-        document.getElementById("alertBox").style.display = "none";
+        alertBox.classList.add("hidden");
+        alertBox.classList.remove("visible");
       }
 
     //Close button 
 
-      document.querySelector(".close").addEventListener('click', hideAlertBox);
+      closeButton.addEventListener('click', hideAlertBox);
 
     //Show alert box
 
       function showAlertBox(message) {
-        document.getElementById("alertmessage").innerText = message;
-        document.getElementById("alertBox").style.display = "block";
+        alertMessage.innerText = message;
+        alertBox.classList.add("visible");
+        alertBox.classList.remove("hidden");
       }
 
     //Hide alert box if clicked outside of alert area
 
         window.addEventListener('click', (event) => {
-        if (event.target == document.getElementById("alertBox")) {
+        if (event.target == alertBox) {
           hideAlertBox();
         }
       });
 
 
 /******************************************************************************/
+
+
+  
+
+ 
