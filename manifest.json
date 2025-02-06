@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Q-Gen",
-  "version": "1.2.2.0",
+  "version": "1.2.4.0",
   "description": "Simple QR code generator for firefox which is inspired by chrome/edge's ability to convert links to QR code",
   "homepage_url": "https://github.com/JARVIS10700/Q-Gen",
    "icons": {
@@ -9,10 +9,11 @@
     "96": "icons/qricon96.png"
   },
   "background": {
-        "scripts": ["features/contextMenu.js"]
+        "scripts": ["features/contextMenu.js"],
+        "persistent": false
   },
 
-  "permissions": ["activeTab","contextMenus","clipboardWrite"],
+  "permissions": ["activeTab","contextMenus","clipboardWrite","downloads"],
   
   "browser_action": {
     "default_icon": "icons/qricon512.png",

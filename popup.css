@@ -1,73 +1,86 @@
-/* Main page */
-#mainpage {
-  height: 440px;
-  width: 300px;
-  background-color: #121212;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-}
+/******************************************************************************/
 
-/* QR page title */
-#title {
-  width: 250px;
-  color: white;
-  height: 20px;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-family: sans-serif;
-}
+/* HTML Body */
+  /* Main page */
+    #mainpage {
+      height: 440px;
+      width: 300px;
+      background-color: #121212;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
 
-/* QR area */
-#qrarea {
-  height: 265px;
-  width: 265px;
-  background-color: #ffffff;
-  padding: 4px;
-  border-radius: 4px;
-  margin-bottom: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; 
-  text-align: center;
-}
+/******************************************************************************/
 
-/* QR Text */
-#qrtext {
-  font-family: sans-serif;
-  color: black;
-  text-align: center;
-}
+/* QR */
+
+  /* QR page title */
+    #title {
+      width: 250px;
+      color: white;
+      height: 20px;
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-family: sans-serif;
+    }
+
+  /* QR area */
+    #qrarea {
+      height: 265px;
+      width: 265px;
+      background-color: #ffffff;
+      padding: 4px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; 
+      text-align: center;
+    }
+
+  /* QR Text */
+    #qrtext {
+      font-family: sans-serif;
+      color: black;
+      text-align: center;
+    }
+
+/******************************************************************************/
 
 /* Buttons */
-/* Button Box */
-#buttonbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  background-color: #121212;
-  border-radius: 4px;
-  margin-bottom: 5px;
-}
 
-/* Button Class */
-.buttons {
-  background-color: #222222;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  padding: 10px 30px;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
+  /* Button Box */
+    #buttonbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      background-color: #121212;
+      border-radius: 4px;
+      margin-bottom: 5px;
+    }
+
+  /* Button Class */
+    .buttons {
+      background-color: #222222;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      padding: 10px 30px;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition-duration: 0.4s;
+    }
+
+/******************************************************************************/
 
 /* QR alert area */
+
   /* Alert box class */
     .alert {
       display: none;
@@ -108,6 +121,7 @@
       font-family: sans-serif;
     }
 
+/******************************************************************************/    
     
 /* Link Text */ 
   #linktext {
@@ -123,6 +137,11 @@
     overflow: clip;
     resize: none;
     margin: 0;
+    outline: none;
+  }
+  ::selection{
+    background-color: #ffffff;
+    color: #000000;
   }
 
 /* Link Button */
@@ -139,6 +158,8 @@
     transition-duration: 0.4s;
     text-align: center;
   }
+
+/******************************************************************************/  
 
 /* Class Implementations to improve codw */
 
